@@ -1,13 +1,13 @@
 $(document).ready(function() {
 
   $('#button').click(function(){
-  
-    // Set JSON API properties  
+
+    // Set JSON API properties
 
       var seinfeldAPI = "https://seinfeld-quotes.herokuapp.com/quotes";
       var seinfeldOptions = "GET";
 
-     // create function for displaying quotes at click of a button  
+     // create function for displaying quotes at click of a button
 
       function displayQuotes(data) {
 
@@ -38,16 +38,15 @@ $(document).ready(function() {
         quoteHTML += episode;
         quoteHTML += '</p>';
 
-        // add quote HTML to 
+        // add quote HTML to
 
         $('#quote-text').html(quoteHTML);
       };
-  
+
   // Send JSON get request
-  
+
   $.getJSON(seinfeldAPI, seinfeldOptions, displayQuotes);
-    
+
     });
 
 });
-
