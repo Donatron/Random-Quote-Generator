@@ -53,9 +53,12 @@ h3 {
   position: relative;
 }
 
+h2 {
+  margin-left: 50px;
+}
+
 .wrapper {
   flex: 1;
-
   flex-direction: column;
 }
 
