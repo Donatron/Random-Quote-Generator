@@ -1,52 +1,48 @@
 $(document).ready(function() {
 
-  $('#button').click(function(){
+var quotes = [];
 
-    // Set JSON API properties
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      var response = JSON.parse(xhr.responseText);
+        quotes.push(response['quotes']);
+        console.log(quotes[0].length);
+    }
+  };
 
-      var seinfeldAPI = "https://seinfeld-quotes.herokuapp.com/quotes";
-      var seinfeldOptions = "GET";
+  xhr.open('GET', 'https://seinfeld-quotes.herokuapp.com/quotes');
+  xhr.send();
 
-     // create function for displaying quotes at click of a button
+$('#button').click(function() {
 
-      function displayQuotes(data) {
+var i = Math.floor(Math.random() * quotes[0].length) + 1;
 
-        // Find length of returned array and generate a random number less than or equal to the array length
 
-        var length = Object.keys(data.quotes).length;
-        var quoteID = Math.floor(Math.random(length + 1) * 100);
+console.log(i);
+  // generate random quote
+  var quote = quotes[0][i]['quote'];
+  var author = quotes[0][i]['author'];
+  var season = quotes[0][i]['season'];
+  var episode = quotes[0][i]['episode'];
 
-        // generate random quote
+  // create quote HTML and populate with quote data
+  var quoteHTML = '<h4 class="quote">';
 
-        var quote = data.quotes[quoteID].quote;
-        var author = data.quotes[quoteID].author;
-        var season = data.quotes[quoteID].season;
-        var episode = data.quotes[quoteID].episode;
+  quoteHTML += quote;
+  quoteHTML += '</h4>';
+  quoteHTML += '<p class="author">';
+  quoteHTML += author;
+  quoteHTML += ': ';
+  quoteHTML += 'Season ';
+  quoteHTML += season;
+  quoteHTML += ', Episode ';
+  quoteHTML += episode;
+  quoteHTML += '</p>';
 
-        // create quote HTML and populate with quote data
+  // add quote HTML to
 
-        var quoteHTML = '<h4 class="quote">';
-
-        quoteHTML += quote;
-        quoteHTML += '</h4>';
-        quoteHTML += '<p class="author">';
-        quoteHTML += author;
-        quoteHTML += ': ';
-        quoteHTML += 'Season ';
-        quoteHTML += season;
-        quoteHTML += ', Episode ';
-        quoteHTML += episode;
-        quoteHTML += '</p>';
-
-        // add quote HTML to
-
-        $('#quote-text').html(quoteHTML);
-      };
-
-  // Send JSON get request
-
-  $.getJSON(seinfeldAPI, seinfeldOptions, displayQuotes);
-
-    });
+  $('#quote-text').html(quoteHTML);
+});
 
 });
