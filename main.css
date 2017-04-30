@@ -93,6 +93,10 @@ input#button svg {
   left: 200;
 }
 
+.navbar-fixed-bottom {
+  background: black;
+}
+
 footer {
   text-align: center;
   width: 100%;
