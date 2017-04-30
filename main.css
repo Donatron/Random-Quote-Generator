@@ -7,29 +7,17 @@
 body {
   background-color: black;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
 
+  min-height: 100vh;
+  text-align: center;
   color: white;
 }
-
-/*.banner {
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 60vh;
-
-  display: none;
-}*/
 
 header {
   height: 280px;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
   text-align: center;
+  margin-top: 30px;
 }
 
 .row {
@@ -37,8 +25,9 @@ header {
 }
 
 .instructions {
-  width: 50%;
+  width: 100%;
   height: 280px;
+  text-align: center;
 }
 
 h3 {
@@ -47,7 +36,7 @@ h3 {
   font-weight: 100;
   text-align: left;
   margin-bottom: 20px;
-  margin-left: 20%;
+  text-align: center;
 
   position: relative;
 }
@@ -56,16 +45,12 @@ h2 {
   margin-left: 50px;
 }
 
-.wrapper {
-  flex: 1;
-  flex-direction: column;
-}
 
 #quote-wrapper {
   font-size: 1.5em;
   text-align: center;
-  width: 100%;
-/*  margin-left: 10%;*/
+  width: 80%;
+  margin-left: 10%;
   height: 500px;;
 
 }
@@ -95,7 +80,7 @@ input#button {
   height: 200px;
   width: 450px;
   background-color: #000;
-  background-image: url('img/seinfeld_logo.svg');
+  background-image: url('img/Seinfeld_logo.svg');
   background-size: cover;
   background-repeat: no-repeat;
   margin-left: 20px;
@@ -126,4 +111,27 @@ footer p {
 footer a {
   color: #fcd720;
   text-decoration: none;
+}
+
+
+@media screen and (max-width: 1024px) {
+  h3 {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+  }
+
+  #quote-wrapper {
+    font-size: 3em;
+    margin-top: 30px;
+    width: 100%;
+    margin-left: auto;
+  }
+
+  .author {
+    font-size: 1.25em;
+  }
+
+  footer p {
+    font-size: 2em;
+  }
 }
