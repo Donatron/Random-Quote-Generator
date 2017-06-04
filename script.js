@@ -1,10 +1,29 @@
 $(document).ready(function() {
 
-var quotes = [];
+  // Prepare "quotes loading" message
+  $('.instructions h3').html("Loading quotes");
+
+  var quoteHTML = '<h4 class="quote">';
+
+  quoteHTML += 'Uno momento por favor!';
+  quoteHTML += '</h4>';
+  quoteHTML += '<p class="author">';
+  quoteHTML += 'Jerry: Season 3, Episode 20';
+  quoteHTML += '</p>';
+
+  $('#quote-text').html(quoteHTML);
+
+  // Create array for storing API quotes
+  var quotes = [];
 
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
+      $('.quote').html('Giddyup!');
+      $('.author').html('Kramer: Season 5, Episode 10');
+      $('.fa-spinner').hide();
+
+      $('.instructions h3').html("Click the Seinfeld logo for a random quote");
       var response = JSON.parse(xhr.responseText);
         quotes.push(response['quotes']);
         console.log(quotes[0].length);
@@ -27,7 +46,7 @@ console.log(i);
   var episode = quotes[0][i]['episode'];
 
   // create quote HTML and populate with quote data
-  var quoteHTML = '<h4 class="quote">';
+  quoteHTML = '<h4 class="quote">';
 
   quoteHTML += quote;
   quoteHTML += '</h4>';

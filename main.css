@@ -97,6 +97,15 @@ input#button svg {
   background: black;
 }
 
+.loading-icon {
+  color: white;
+  margin-top: 50px;
+}
+
+.fa-spinner {
+  font-size: 60px;
+}
+
 footer {
   text-align: center;
   width: 100%;
@@ -137,5 +146,9 @@ footer a {
 
   footer p {
     font-size: 2em;
+  }
+
+  .fa-spinner {
+    font-size: 40px;
   }
 }
